@@ -1,5 +1,4 @@
-const { Thought } = require("../models");
-const User = require(`../models/User`);
+const { Thought, User } = require("../models");
 
 module.exports = {
   getThoughts(req, res) {
@@ -52,27 +51,6 @@ module.exports = {
   deleteThought(req, res) {
     Thought.findOneanddelete({ _id: req.params.thoughtId })
       .then((deletedThought) => res.status(200).json(deletedThought))
-      .catch((err) => res.status(500).json(err));
-  },
-  
-  createReaction(req, res) {
-    console.log(req.body);
-    Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
-      { $push: { reactions: req.body } },
-      { new: true }
-    )
-      .then((newReaction) => res.status(200).json(newReaction))
-      .catch((err) => res.status(500).json(err));
-  },
-
-  deleteReaction(req, res) {
-    Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionId: req.params.reactionId } } },
-      { new: true }
-    )
-      .then((response) => res.status(200).json(response))
       .catch((err) => res.status(500).json(err));
   },
 };
