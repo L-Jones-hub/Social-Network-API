@@ -18,7 +18,7 @@ This is an API for a social network web application where users can share their 
 
 ## How to Use
 
-Watch [this video]() to see a demonstration of how to use this Social Network API.
+Watch [this video](https://www.loom.com/share/11a5583a9c2744788c58f2fb6bcf97f5) to see a demonstration of how to use this Social Network API.
 
 ---
 
